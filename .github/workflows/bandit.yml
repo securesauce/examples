@@ -16,8 +16,8 @@ jobs:
       - name: Checkout Bandit
         uses: actions/checkout@v4
         with:
-          repository: 'ericwb/bandit'
-          ref: 'sarif'
+          repository: 'PyCQA/bandit'
+          ref: 'main'
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
