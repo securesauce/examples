@@ -11,6 +11,6 @@ jobs:
       security-events: write
     steps:
       - name: Analyze
-        uses: securesauce/precli-actionv@0.1.0
+        uses: securesauce/precli-action@v0.1.0
         with: 
           path: "."
