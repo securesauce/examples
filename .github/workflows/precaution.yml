@@ -10,7 +10,10 @@ jobs:
       # required for all workflows
       security-events: write
     steps:
-      - name: Analyze
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Perform Precaution Analysis
         uses: securesauce/precli-action@v0.1.0
         with: 
           path: "."
