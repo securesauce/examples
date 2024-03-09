@@ -5,7 +5,12 @@ on:
 
 jobs:
   analyze:
-    name: Analyze
-    uses: securesauce/precli-actionv@0.1.0
-    with: 
-        path: "."
+    runs-on: ubuntu-latest
+    permissions:
+      # required for all workflows
+      security-events: write
+    steps:
+      - name: Analyze
+        uses: securesauce/precli-actionv@0.1.0
+        with: 
+          path: "."
