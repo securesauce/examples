@@ -13,10 +13,7 @@ jobs:
       actions: read
       contents: read
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Perform Precaution Analysis
-        uses: securesauce/precli-action@v0.1.4
+        uses: securesauce/precli-action@v0.1.5
         with: 
           path: "."
