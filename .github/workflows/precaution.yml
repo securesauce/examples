@@ -14,4 +14,4 @@ jobs:
       contents: read
     steps:
       - name: Perform Precaution Analysis
-        uses: securesauce/precli-action@v0.1.5
+        uses: securesauce/precli-action@v1
