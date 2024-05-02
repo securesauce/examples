@@ -1,10 +1,14 @@
 name: Bandit
 
 on:
+  push:
+    branches: ["main" ]
+  pull_request:
+    branches: ["main"]
   workflow_dispatch:
 
 jobs:
-  build:
+  analyze:
     runs-on: ubuntu-latest
     permissions:
       # required for all workflows
@@ -13,29 +17,5 @@ jobs:
       actions: read
       contents: read
     steps:
-      - name: Checkout Bandit
-        uses: actions/checkout@v4
-        with:
-          repository: 'PyCQA/bandit'
-          ref: 'main'
-
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.12
-
-      - name: Install dependencies
-        run: |
-          pip install .[sarif]
-          rm -rf bandit
-
-      - name: Checkout local repository
-        uses: actions/checkout@v4
-
-      - name: Run bandit
-        run: bandit -r . -f sarif -o results.sarif || true
-
-      - uses: github/codeql-action/upload-sarif@v3
-        with:
-          # Path to SARIF file relative to the root of the repository
-          sarif_file: results.sarif
+      - name: Perform Bandit Analysis
+        uses: ericwb/bandit-action@composite-action
