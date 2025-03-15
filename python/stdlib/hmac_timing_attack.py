@@ -1,3 +1,6 @@
+# This example demostrates an insecure way of comparing a digest
+# that exposes the code to a timing attack. This is because using
+# equals operator on digest does not compare in constant time.
 import hmac
 
 
@@ -6,8 +9,9 @@ received_digest = (
     b"\xf5\x10>\xdbf\xa2\xaf\xf7x\xcdX\xdf"
 )
 
-key = b"my-secret-key"
+key = b"my-super-secret-key"
 password = b"pass"
 digest = hmac.digest(key, password, digest="sha224")
 
-return digest == received_digest
+if digest == received_digest:
+    print("Authentication okay")
