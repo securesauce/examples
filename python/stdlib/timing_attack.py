@@ -13,5 +13,5 @@ key = b"my-super-duper-secret-key"
 password = b"pass"
 digest = hmac.digest(key, password, digest="sha224")
 
-if digest == received_digest:
+if hmac.compare_digest(digest, received_digest):
     print("Authentication okay")
