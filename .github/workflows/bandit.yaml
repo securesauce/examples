@@ -18,4 +18,4 @@ jobs:
       contents: read
     steps:
       - name: Perform Bandit Analysis
-        uses: ericwb/bandit-action@composite-action
+        uses: PyCQA/bandit-action@v1
